@@ -45,7 +45,7 @@
 //#define HotendE3D
 //#define HotendMosquito
 
-//Enable this if you have an all metal hotend capable of 300c
+// Enable this if you have an all metal hotend capable of 300c
 #define HotendAllMetal
 
 // Enable this if you used a plug and play creality e3d kit with the Creality thermistor
@@ -389,12 +389,11 @@
 #if ENABLED(MachineCR10Orig, ABL_BI)
   #define LowMemoryBoard
 #endif
-//Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
 
+//Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
 #if NONE(MachineCR10Orig, MachineEnder4, MachineCR10SPro, MachineCRX, MachineCR10Max, MachineEnder5Plus) || ENABLED(GraphicLCD)
   #define SHOW_BOOTSCREEN
-
-// Show the bitmap in Marlin/_Bootscreen.h on startup.
+  // Show the bitmap in Marlin/_Bootscreen.h on startup.
   #define SHOW_CUSTOM_BOOTSCREEN
   // Show the bitmap in Marlin/_Statusscreen.h on the status screen.
   #define CUSTOM_STATUS_SCREEN_IMAGE
