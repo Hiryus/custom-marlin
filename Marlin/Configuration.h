@@ -46,7 +46,7 @@
 //#define HotendMosquito
 
 // Enable this if you have an all metal hotend capable of 300c
-#define HotendAllMetal
+//#define HotendAllMetal
 
 // Enable this if you used a plug and play creality e3d kit with the Creality thermistor
 //#define CrealityThermistor
@@ -77,7 +77,7 @@
 */
 //#define ABL_EZABL // TH3D EZABL or Any NO Sensor
 //#define ABL_NCSW //Creality ABL or Any NC Sensor
-#define ABL_BLTOUCH
+//#define ABL_BLTOUCH
 
 //#define CREALITY_ABL_MOUNT //Using creality ABL mount
 //#define E3D_DUALFAN_MOUNT // Using HD Modular mount as above with 2 5015 blowers and sensor on the right
