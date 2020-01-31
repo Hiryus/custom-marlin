@@ -1950,10 +1950,10 @@
 #if (ENABLED(ABL_EZABL)|| ENABLED(ABL_BLTOUCH) || ENABLED(ABL_NCSW))
   #if ((ENABLED(ABL_UBL)))
     #define AUTO_BED_LEVELING_UBL
-    #endif
-    #if ((ENABLED(ABL_BI)))
-      #define AUTO_BED_LEVELING_BILINEAR
-    #endif
+  #endif
+  #if ((ENABLED(ABL_BI)))
+    #define AUTO_BED_LEVELING_BILINEAR
+  #endif
 #elif NONE(OrigLA)
   #define MESH_BED_LEVELING
 #else
