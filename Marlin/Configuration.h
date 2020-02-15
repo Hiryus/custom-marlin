@@ -41,8 +41,8 @@
 
    Mosquito assumes E3D Groovemount setup using the above as well
 */
-#define HotendStock
-//#define HotendE3D
+//#define HotendStock
+#define HotendE3D
 //#define HotendMosquito
 
 // Enable this if you have an all metal hotend capable of 300c
@@ -809,7 +809,9 @@
 #if ENABLED(HotendMosquito)
   #define HEATER_0_MAXTEMP 450
 #elif ENABLED(HotendAllMetal)
-	#define HEATER_0_MAXTEMP 315
+  #define HEATER_0_MAXTEMP 315
+#elif ENABLED(HotendE3D)
+  #define HEATER_0_MAXTEMP 300
 #else
 	#define HEATER_0_MAXTEMP 255
 #endif
