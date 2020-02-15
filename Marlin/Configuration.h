@@ -1437,53 +1437,10 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#if ENABLED(MachineCRX, HotendStock)
-   #if ENABLED(ABL_BLTOUCH)
-     #define NOZZLE_TO_PROBE_OFFSET { -22, -45, 0 }
-   #elif ANY(ABL_EZABL, ABL_NCSW)
-     #define NOZZLE_TO_PROBE_OFFSET { -44, -10, 0 }
-   #endif
-#elif ANY(MachineCR10SPro, MachineCR10Max) && ENABLED(HotendStock)
-  #define NOZZLE_TO_PROBE_OFFSET { -27, 0, 0 }
-#elif ENABLED(MachineCR10SV2)
-  #if ENABLED(ABL_BLTOUCH)
-    #define NOZZLE_TO_PROBE_OFFSET { 45, 7, 0 }
-  #elif ENABLED(ABL_EZABL) || ENABLED(ABL_NCSW)
-    #define NOZZLE_TO_PROBE_OFFSET { 45, 7, 0 }
-  #endif
-#else
-   #if (ENABLED(ABL_BLTOUCH) && ENABLED(HotendStock))
-     #define NOZZLE_TO_PROBE_OFFSET { -41, -8, 0 }
-   #endif
-
-  #if ((ENABLED(ABL_EZABL) || ENABLED(ABL_NCSW)) && ENABLED(HotendStock))
-    #if ENABLED(CREALITY_ABL_MOUNT)
-      #define NOZZLE_TO_PROBE_OFFSET { -55, -15, 0 }
-    #else
-      #define NOZZLE_TO_PROBE_OFFSET { -44, -10, 0 }
-    #endif
-  #endif
-
-
-   #if (ANY(ABL_BLTOUCH, ABL_EZABL,ABL_NCSW) && ANY(HotendE3D, HotendMosquito))
-    #if ENABLED(E3D_DUALFAN_MOUNT)
-      #if ENABLED(E3D_PROBEMOUNT_LEFT)
-        #define NOZZLE_TO_PROBE_OFFSET { -63, 5, 0 }
-      #else
-        #define NOZZLE_TO_PROBE_OFFSET { 63, 5, 0 }
-      #endif
-    #else
-      #define NOZZLE_TO_PROBE_OFFSET { 32, 5, 0 }
-    #endif
-   #endif
- #endif
+#define NOZZLE_TO_PROBE_OFFSET { -28, -6, 0 }
 
 // Certain types of probes need to stay away from edges
-//#if ENABLED(ABL_BLTOUCH)
-//  #define MIN_PROBE_EDGE 3
-//#else
-  #define MIN_PROBE_EDGE 10
-//#endif
+#define MIN_PROBE_EDGE 10
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 6000
