@@ -172,7 +172,7 @@
     #define THERMAL_PROTECTION_BED_PERIOD 240    // Seconds
     #define THERMAL_PROTECTION_BED_HYSTERESIS 4 // Degrees Celsius
 
-    #define WATCH_BED_TEMP_PERIOD 240                // Seconds
+    #define WATCH_BED_TEMP_PERIOD 120                // Seconds
     #define WATCH_BED_TEMP_INCREASE 4               // Degrees Celsius
 
   #else

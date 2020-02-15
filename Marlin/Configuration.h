@@ -843,58 +843,49 @@
   #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
-  // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
-
-#if ENABLED(HotendStock)
-  #if ANY(MachineCR10SPro, MachineCR10Max)
-    #define DEFAULT_Kp 25.25
-    #define DEFAULT_Ki 2.17
-    #define DEFAULT_Kd 73.44
-  #elif ENABLED(MachineEnder5Plus)
-    #define  DEFAULT_Kp 14.72
-    #define  DEFAULT_Ki 0.89
-    #define  DEFAULT_Kd 61.22
-  #elif ENABLED(MachineCRX)
-    #define DEFAULT_Kp 19.00
-    #define DEFAULT_Ki 1.40
-    #define DEFAULT_Kd 66.00
-  #elif ENABLED(MachineCR10SV2)
-    #define  DEFAULT_Kp 19.47
-    #define  DEFAULT_Ki 1.59
-    #define  DEFAULT_Kd 59.40
-  #elif ENABLED(MachineCR2020)
-    #define  DEFAULT_Kp 22.2
-    #define  DEFAULT_Ki 1.08
-    #define  DEFAULT_Kd 114
-  #else
-    #define  DEFAULT_Kp 17.42
-    #define  DEFAULT_Ki 1.27
-    #define  DEFAULT_Kd 59.93
+  // Mesured settings (will override defaults)
+  #define MeasuredPID0
+  #if ENABLED(MeasuredPID0)
+    #define DEFAULT_Kp 22.00
+    #define DEFAULT_Ki 1.63
+    #define DEFAULT_Kd 74.35
   #endif
-#endif
 
-#if ANY(HotendE3D, HotendMosquito)
-//E3D v6 Clone with 5050 fan wing at 100% set to 235
-#define  DEFAULT_Kp 23.36
-#define  DEFAULT_Ki 1.99
-#define  DEFAULT_Kd 87.46
-#endif
+  // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
+  #if ENABLED(HotendStock) && DISABLED(MeasuredPID0)
+    #if ANY(MachineCR10SPro, MachineCR10Max)
+      #define DEFAULT_Kp 25.25
+      #define DEFAULT_Ki 2.17
+      #define DEFAULT_Kd 73.44
+    #elif ENABLED(MachineEnder5Plus)
+      #define  DEFAULT_Kp 14.72
+      #define  DEFAULT_Ki 0.89
+      #define  DEFAULT_Kd 61.22
+    #elif ENABLED(MachineCRX)
+      #define DEFAULT_Kp 19.00
+      #define DEFAULT_Ki 1.40
+      #define DEFAULT_Kd 66.00
+    #elif ENABLED(MachineCR10SV2)
+      #define  DEFAULT_Kp 19.47
+      #define  DEFAULT_Ki 1.59
+      #define  DEFAULT_Kd 59.40
+    #elif ENABLED(MachineCR2020)
+      #define  DEFAULT_Kp 22.2
+      #define  DEFAULT_Ki 1.08
+      #define  DEFAULT_Kd 114
+    #else
+      #define  DEFAULT_Kp 17.42
+      #define  DEFAULT_Ki 1.27
+      #define  DEFAULT_Kd 59.93
+    #endif
+  #endif
 
-  // Ultimaker
-  //#define DEFAULT_Kp 22.2
-  //#define DEFAULT_Ki 1.08
-  //#define DEFAULT_Kd 114
-
-  // MakerGear
-  //#define DEFAULT_Kp 7.0
-  //#define DEFAULT_Ki 0.1
-  //#define DEFAULT_Kd 12
-
-  // Mendel Parts V9 on 12V
-  //#define DEFAULT_Kp 63.0
-  //#define DEFAULT_Ki 2.25
-  //#define DEFAULT_Kd 440
-
+  // E3D v6 Clone with 5050 fan wing at 100% set to 235
+  #if ANY(HotendE3D, HotendMosquito) && DISABLED(MeasuredPID0)
+    #define  DEFAULT_Kp 23.36
+    #define  DEFAULT_Ki 1.99
+    #define  DEFAULT_Kd 87.46
+  #endif
 #endif // PIDTEMP
 
 //===========================================================================
@@ -914,10 +905,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-#if NONE(MachineCR10Orig, LowMemoryBoard) || ENABLED(MelziHostOnly)
-  #define PIDTEMPBED
-#endif
-//#define BED_LIMIT_SWITCHING
+#define PIDTEMPBED
 
 /**
  * Max Bed Power
@@ -931,23 +919,9 @@
   //#define MIN_BED_POWER 0
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-  //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-  //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #if ENABLED(MachineCR2020)
-    #define  DEFAULT_bedKp 690.34
-    #define  DEFAULT_bedKi 111.47
-    #define  DEFAULT_bedKd 1068.83
-  #else
-    #define  DEFAULT_bedKp 690.34
-    #define  DEFAULT_bedKi 111.47
-    #define  DEFAULT_bedKd 1068.83
-  #endif
-
-  //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-  //from pidautotune
-  //#define DEFAULT_bedKp 97.1
-  //#define DEFAULT_bedKi 1.41
-  //#define DEFAULT_bedKd 1675.16
+  #define DEFAULT_bedKp 108.87
+  #define DEFAULT_bedKi 21.10
+  #define DEFAULT_bedKd 374.59
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
