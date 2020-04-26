@@ -44,6 +44,12 @@ applet/
 tags
 
 #
+# Compilation files
+#
+*.hex
+
+
+#
 # C++
 #
 # Compiled Object files
