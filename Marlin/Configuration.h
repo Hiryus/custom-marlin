@@ -1913,22 +1913,8 @@
 
 #endif
 
-#if ENABLED(MeshFast)
-#define GRID_MAX_POINTS_X 3
-#elif ENABLED(MeshStd)
-  #if ENABLED(ABL_UBL)
-    #define GRID_MAX_POINTS_X 6
-  #else
-    #define GRID_MAX_POINTS_X 5
-  #endif
-#elif ENABLED( MeshFine)
-  #define GRID_MAX_POINTS_X 8
-#elif ENABLED(MeshExtreme)
-  #define GRID_MAX_POINTS_X 15
-#else
-  #define GRID_MAX_POINTS_X 3
-#endif
-  #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
+#define GRID_MAX_POINTS_X 7
+#define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
@@ -1983,10 +1969,8 @@
 #else
   #define MESH_INSET 20          // Set Mesh bounds as an inset region of the bed
 #endif
-  //#define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited.
-  //#define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
-  //#define MESH_G28_REST_ORIGIN // After homing all axes ('G28' or 'G28 XYZ') rest Z at Z_MIN_POS
+//#define MESH_G28_REST_ORIGIN // After homing all axes ('G28' or 'G28 XYZ') rest Z at Z_MIN_POS
 
 #endif // BED_LEVELING
 
