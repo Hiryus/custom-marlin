@@ -733,30 +733,8 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#if ENABLED(ConfigurableThermistors)
-  #define TEMP_SENSOR_0 1000
-  #if(ENABLED(Dual_ChimeraDualNozzle))
-    #define TEMP_SENSOR_1 1000
-  #endif
-#elif ANY(HotendStock, CrealityThermistor)
-  #define TEMP_SENSOR_0 1
-  #if(ENABLED(Dual_ChimeraDualNozzle))
-    #define TEMP_SENSOR_1 1
-  #endif
-#elif ENABLED(HotendE3D)
-  #define TEMP_SENSOR_0 5
-  #if(ENABLED(Dual_ChimeraDualNozzle))
-    #define TEMP_SENSOR_1 5
-  #endif
-#elif ENABLED(HotendMosquito)
-  #define TEMP_SENSOR_0 67
-  #if(ENABLED(Dual_ChimeraDualNozzle))
-    #define TEMP_SENSOR_1 67
-  #endif
-#endif
-#if(DISABLED(Dual_ChimeraDualNozzle))
-  #define TEMP_SENSOR_1 0
-#endif
+#define TEMP_SENSOR_0 5
+#define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
 #define TEMP_SENSOR_4 0
@@ -1298,9 +1276,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#if DISABLED(MachineCR10Orig) || ENABLED(MelziHostOnly)
-  #define S_CURVE_ACCELERATION
-#endif
+#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
