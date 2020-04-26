@@ -1900,9 +1900,9 @@
   /**
    * Enable the G26 Mesh Validation Pattern tool.
    */
-#if(DISABLED(MachineCR10Orig))
-#define G26_MESH_VALIDATION   // Enable G26 mesh validation
-#endif
+  #if(DISABLED(MachineCR10Orig))
+     #define G26_MESH_VALIDATION   // Enable G26 mesh validation
+  #endif
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for the G26 Mesh Validation Tool.
