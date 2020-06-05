@@ -837,21 +837,21 @@ $(BUILD_DIR)/$(TARGET).elf: $(OBJ) Configuration.h
 # Object files that were found in "src" will be stored in $(BUILD_DIR)
 # in directories that mirror the structure of "src"
 
-$(BUILD_DIR)/%.o: %.c Configuration.h Configuration_adv.h $(MAKEFILE)
+$(BUILD_DIR)/%.o: %.c CustomConfiguration.h Configuration.h Configuration_adv.h $(MAKEFILE)
 	$(Pecho) "  CC    $<"
 	$P $(CC) -MMD -c $(ALL_CFLAGS) $(CWARN) $< -o $@
 
-$(BUILD_DIR)/%.o: %.cpp Configuration.h Configuration_adv.h $(MAKEFILE)
+$(BUILD_DIR)/%.o: %.cpp CustomConfiguration.h Configuration.h Configuration_adv.h $(MAKEFILE)
 	$(Pecho) "  CXX   $<"
 	$P $(CXX) -MMD -c $(ALL_CXXFLAGS) $(CXXWARN) $< -o $@
 
 # Object files for Arduino libs will be created in $(BUILD_DIR)/arduino
 
-$(BUILD_DIR)/arduino/%.o: %.c Configuration.h Configuration_adv.h $(MAKEFILE)
+$(BUILD_DIR)/arduino/%.o: %.c CustomConfiguration.h Configuration.h Configuration_adv.h $(MAKEFILE)
 	$(Pecho) "  CC    $<"
 	$P $(CC) -MMD -c $(ALL_CFLAGS) $(LIBWARN) $< -o $@
 
-$(BUILD_DIR)/arduino/%.o: %.cpp Configuration.h Configuration_adv.h $(MAKEFILE)
+$(BUILD_DIR)/arduino/%.o: %.cpp CustomConfiguration.h Configuration.h Configuration_adv.h $(MAKEFILE)
 	$(Pecho) "  CXX   $<"
 	$P $(CXX) -MMD -c $(ALL_CXXFLAGS)  $(LIBWARN) $< -o $@
 

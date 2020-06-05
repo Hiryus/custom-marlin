@@ -3204,3 +3204,5 @@
 
 // Allow servo angle to be edited and saved to EEPROM
 //#define EDITABLE_SERVO_ANGLES
+
+#include "CustomConfiguration.h"
